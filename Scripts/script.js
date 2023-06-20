@@ -8,7 +8,7 @@ haut.addEventListener('click',()=>{
 
 bas.addEventListener('click',()=>{
     scrollTo(scrollX,scrollY+100)
-   
+    handleScroll()
 })
 
 //efet fade left
@@ -23,9 +23,17 @@ function startFadeAnimation() {
 // Démarrer l'animation de fondu 
 startFadeAnimation();
 
+//efet fade out
+const fadeOutElement = document.querySelector('.fadeOut-element')
+function startfadeOutElement(){
+  fadeOutElement.classList.add('fade-out')
+  setTimeout(()=>{
+    fadeOutElement.classList.remove('fade-out')
+  },5000)
+}
 //efet fade in on scroll
 
-const fadeInElement = document.querySelectorAll('#fadeIn-element');
+const fadeInElement = document.querySelectorAll('.fadeIn-element')
 
 function handleScroll() {
   
@@ -36,11 +44,14 @@ function handleScroll() {
   
       if (elementTop < windowHeight) {
         element.classList.add('fade-in')
-        console.log(`${elementTop} > ${windowHeight} `)
-
-      }else if (elementBottom > windowHeight){
+        
+      }else if (elementTop > windowHeight){
+        
+        
         console.log(`${elementBottom} > ${windowHeight} `)
       }
+
+      
     });
   }
   

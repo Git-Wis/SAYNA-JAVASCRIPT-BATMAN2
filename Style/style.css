@@ -141,6 +141,21 @@ button:hover,button:active {
   .fade-in {
     animation: fadeInAnimation 5s;
   }
+
+  /*Faire un efect fade out*/
+@keyframes fadeOutAnimation {
+    0% {
+      opacity: 1;
+      visibility: 100%;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .fade-out {
+    animation: fadeOutAnimation 5s;
+  }
   
   
 .part1{

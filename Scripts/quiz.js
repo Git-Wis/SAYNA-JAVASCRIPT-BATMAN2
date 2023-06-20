@@ -40,20 +40,24 @@ fetch('https://batman-api.sayna.space/questions')
             quiz1.style.display =  "block"
         })
 
-        //test 
-        const test = document.querySelector('.text')
-        if(test.checked){
-          console.log(test.nextElementSibling)
-        }
+        
 
-        //popUp
+        //popUp  afficher le resultat final du quiz
 
         document.querySelector('.bt').addEventListener('click',()=>{
           popup.style.display = 'block'
+          //test 
+        const checkbox = document.querySelector('.checkbox')
+        if(checkbox.checked){
+          console.log(checkbox.nextElementSibling)
+        }
         })
 
         document.querySelector('.pupup-btn').addEventListener('click',()=>{
-          popup.style.display = 'none'
+          startfadeOutElement()
+          setTimeout(()=>{
+            popup.style.display = 'none'
+          },5000)
         })
   }
 
