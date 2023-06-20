@@ -1,0 +1,192 @@
+*{
+    font-family: 'Space Grotesk' sans-serif;
+    font-size:18px;
+}
+
+.bc-img-game{
+    background-image: url("../Illustrations/Batman2/Batgame_1.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+}
+
+.IMG {
+    margin:0 100px ;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.fl_Down {
+    margin: 80px;
+}
+
+h3{
+    font-size: 30px;
+}
+
+button {
+    padding: 20px;
+    font-family: 'Rajdhani';
+    font-style:normal;
+    font-size: 20px;
+    background: linear-gradient(to right, #eddebf59, #894e00a9);
+    border: none;
+    color: white;
+}
+
+button:hover{
+    background: linear-gradient(to right, #eddebf, #894e00);
+}
+
+.quiz1,.quiz2,.quiz3,.quiz4,.quiz5,.quiz6,.quiz7,.quiz8,.quiz9,.quiz10,.quiz11,.quiz12,.quiz13,.quiz14,.quiz15{
+    margin: 200px 150px 0 ;
+}
+/* Masquer tout les questionnaires */
+.quiz1,.quiz2,.quiz3,.quiz4,.quiz5,.quiz6,.quiz7,.quiz8,.quiz9,.quiz10,.quiz11,.quiz12,.quiz13,.quiz14,.quiz15{
+    display: none;
+}
+
+/*efect fad in */
+
+
+
+.corps {
+    display: flex;
+    padding: 20px;
+
+    /*justify-content: space-evenly;*/
+}
+
+.img {
+    width: 230px;
+}
+
+.img img {
+    margin-top: 20px;
+}
+
+.txt {
+    padding:  0 20px;
+    margin-right: 50px;
+
+}
+
+.answer{
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+    padding-right: 70px;
+    background: #c1c1c18d;
+}
+
+.checkbox {
+    width: 8%;
+}
+
+.answer p {
+    margin: 0;
+    padding: 8px 0;
+    padding-left: 10px;
+}
+
+.bt {
+    margin: 70px 0;
+}
+
+.bt button{
+    margin: 105px 0;
+}
+
+.bt img{
+    padding: 0  0 0 25px;
+}
+
+.btn-flex {
+    display: flex;
+}
+.txt>.btn-flex{
+    margin-top: 50px;
+}
+.bat15{
+    margin-top: -150px;
+    margin-left: 35px;
+}
+
+.quiz10 .answer{
+    padding-right: 0px;
+}
+
+.Bat17{
+    margin-top: 50px;
+    margin-left: -80px;
+}
+
+.Bat20{
+    margin-top: 40px;
+    margin-left: -70px;
+}
+
+@media screen and (max-width : 720px) {
+    
+    .IMG {
+        margin:0 40px ;
+    }
+
+    .corps>.img,.corps img{
+        display: none;
+    }
+
+    .quiz1,.quiz2,.quiz3,.quiz4,.quiz5,.quiz6,.quiz7,.quiz8,.quiz9,.quiz10,.quiz11,.quiz12,.quiz13,.quiz14,.quiz15{
+        margin: 0 50px;
+    }
+
+}
+
+@media screen and (max-width : 580px) {
+    
+    .IMG {
+        margin:0 10px ;
+    }
+
+    .corps>.img,.corps img{
+        display: none;
+    }
+
+    .quiz1,.quiz2,.quiz3,.quiz4,.quiz5,.quiz6,.quiz7,.quiz8,.quiz9,.quiz10,.quiz11,.quiz12,.quiz13,.quiz14,.quiz15{
+        margin: 0;
+    }
+
+}
+
+/*Style du popup*/
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 100px;
+}
+
+.popup-flex {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid #eddebf;
+    background: linear-gradient(to right, #1c1b18fa, #894e00);
+}
+
+.popup-container {
+    max-width: 70%;
+    max-height: 70%;
+    
+}
+
+
+
