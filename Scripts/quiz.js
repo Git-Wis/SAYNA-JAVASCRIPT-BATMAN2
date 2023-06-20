@@ -45,6 +45,30 @@ fetch('https://batman-api.sayna.space/questions')
         //popUp  afficher le resultat final du quiz
 
         document.querySelector('.bt').addEventListener('click',()=>{
+          //premiere niveau de resultat
+          let truth = 9
+          let resultNB
+          const popup_titre = document.querySelector('.popup-container h1')
+          const popup_container = document.querySelector('.popup-container p')
+          
+          if(truth <= 5){
+            popup_titre.textContent = `${truth}/15 C'EST PAS TOUT A FAIT CA ...`
+            resultNB = ` Oula! heureusement que le Riddle est sous le verous... il 
+                        faut que vous repassiez les films,cette fois en enlevant peut-etre
+                        le masque qui vous a bloquer la vue ! Aller, rien est perdu !`
+            
+          }else if(truth <=10){
+            popup_titre.textContent = `${truth}/15 PAS MAL!`
+            resultNB = `Encore un peu d'entrainement avec le chevallier Noir vous
+                      serait benefique,mais vous pouvez mrcher la tete haut vos connaissance sont
+                      la,A vous de les consolider,foncez Gotham est votre terain de chasse`
+          }else if(truth <=15){
+            popup_titre.textContent = `${truth}/15 BRAVO!`
+            resultNB = `Vous ete veritablement un super fan de l'univer de Batman!
+                      Comics,films,rien ne vous echappe. Bruce Wayne a de quoi etre fier,
+                      Gothamm est en paix et Batman peux prendre sa retraite,vous veilliez au grains!`
+          }
+          popup_container.textContent = resultNB
           popup.style.display = 'block'
           //test 
         const checkbox = document.querySelector('.checkbox')
