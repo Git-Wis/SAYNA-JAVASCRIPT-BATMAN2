@@ -48,7 +48,7 @@ function handleScroll() {
       }else if (elementTop > windowHeight){
         
         
-        console.log(`${elementBottom} > ${windowHeight} `)
+        //console.log(`${elementBottom} > ${windowHeight} `)
       }
 
       
