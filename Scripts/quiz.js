@@ -1,8 +1,8 @@
 //recupere les donner de l'API 
 const popup = document.querySelector(".popup")
 
-fetch('https://batman-api.sayna.space/questions')
-//fetch('../Scripts/question_reponse.json')//pour travaillier en local
+//fetch('https://batman-api.sayna.space/questions')
+fetch('../Scripts/question_reponse.json')//pour travaillier en local
   .then(response => response.json())
   .then(data => {
     // Traitez les données reçues ici
@@ -16,61 +16,77 @@ fetch('https://batman-api.sayna.space/questions')
 
   function StartQuiz(question){
         //Recupere tout les quizs 
-        const Start = document.querySelector(".Demarrer")
+        const start = document.querySelector(".Demarrer")
         const quiz = document.querySelector(".quiz")
         const quiz1 = document.querySelector(".quiz1")
-        const quiz15 = document.querySelector(".quiz15")
-
-        let truth = 0
-        let resultNB
-
-        //ajouter un evenement clique sur le bouton demarre
-        Start.addEventListener('click',()=>{
-            quiz.style.display =  "none"
-            quiz1.style.display =  "block"
-        })
+        const quiz12 = document.querySelector(".quiz12")
 
         //calcule du score du quiz
-        let i = 0
+        let truth = 0
+        let resultNB
+        let firstBt = true
+
+        
         let bt = document.querySelectorAll('.bt')
+        console.log(bt)///test
         //parcourir tout les bouton suivant du quiz une par une 
-        for (buttton of bt){
+
+        for (let i = 0; i < question.length+1; i++){
           //evenement sur le bouton suivant  sur le quiz
-          buttton.addEventListener('click',()=>{
-            if  (i === 14){
+          bt[i].addEventListener('click',()=>{
+            if  (i === (question.length)){
               //popUp  afficher le resultat final du quiz
               ResultatFinal(truth)
             }else{
               const quest = document.querySelector(`.quiz${i+1} .txt h4`)
-              const reponse = document.querySelectorAll(`.quiz${i+1} .checkbox`)
-              console.log(quest.textContent)
-              //le question dans l'api
-              console.log(question[i].question)
+              const text = document.querySelector(`.quiz${i+1} .txt .ans`)
+              
+              //ajouter les question et reponse possible dans le quiz
               let j = 0
-              for(const value of reponse) {
+
+              showCheckAnswer(quest,text,question[i])
+
+
+              const reponse = document.querySelectorAll(`.quiz${i} .checkbox`)
+              console.clear()
+              if(!firstBt){
+                for(const value of reponse) {
                 if(value.checked){
+                  
                   console.log(value.nextElementSibling.textContent)
-                  if(question[i].response[j].isGood === true){
-                    console.log(question[i].response[j])
-                    
+                  if(question[i-1].response[j].isGood === false){
+                    console.log("votre reponse est faux ")
+                    break
+                  }else{
+                    console.log(question[i-1].response[j])
+                    truth++//test
                   }
                   
                   
                 }else{
                   console.log(`${value.nextElementSibling.textContent} not checked!!!`)
-                  if(question[i].response[j].isGood === false){
-                    console.log(question[i].response[j])
+                  if(question[i-1].response[j].isGood === false){
+                    console.log(question[i-1].response[j])
                     
                   }
                 }
                 j++
                 
               }
-              if(i<14){
-                document.querySelector(`.quiz${i+1}`).style.display = "none"
-                document.querySelector(`.quiz${i+2}`).style.display = "block"
+              }
+              if(i<(question.length)){
+                if(firstBt){
+                  quiz.style.display =  "none"
+                  document.querySelector(`.quiz${1}`).style.display = "block"
+                }else{
+                  document.querySelector(`.quiz${i}`).style.display = "none"
+                  document.querySelector(`.quiz${i+1}`).style.display = "block"
+                }
+
+                
                 i++
-                truth++//test
+                
+                firstBt = false
               }
             }
 
@@ -84,11 +100,40 @@ fetch('https://batman-api.sayna.space/questions')
             
           },5000)
           quiz1.style.display =  "block"
-          quiz15.style.display =  "none"
+          quiz12.style.display =  "none"
         })
 
+          
+        
+        
         
   }
+  
+  function showCheckAnswer(quest, text, question) {
+    // Efface le contenu précédent de la zone de texte
+    text.innerHTML = "";
+  
+    // Affiche la question
+    quest.textContent = question.question;
+  
+    // Parcours les réponses et les ajoute au quiz
+    for (const response of question.response) {
+      const answer = document.createElement("div");
+      answer.classList.add("answer");
+  
+      const inputCheckbox = document.createElement("input");
+      inputCheckbox.setAttribute("type", "checkbox");
+      inputCheckbox.classList.add("checkbox");
+  
+      const textCheckbox = document.createElement("p");
+      textCheckbox.textContent = response.text;
+  
+      answer.appendChild(inputCheckbox);
+      answer.appendChild(textCheckbox);
+      text.appendChild(answer);
+    }
+  }
+   
 
   function ResultatFinal(score){
     const popup_titre = document.querySelector('.popup-container h1')
