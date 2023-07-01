@@ -16,6 +16,7 @@
 body {
     color : white;
     background-color: black;
+    overflow-x: hidden;
     
 }
 .container1 {
